@@ -27,7 +27,7 @@ const controllerItem = {
   addItem: async (req, resp) => {
     try {
       const newItem = await Items.create(req.body);
-      resp.status(200).json( newItem );
+      resp.status(201).json( newItem );
     } catch (error) {
       resp.status(500).json({ message: error.message });
     }
@@ -51,7 +51,7 @@ const controllerItem = {
       if (!otherItems) {
         resp.status(404).json({ message: "No changes made" });
       }
-      resp.status(200).json( otherItems );
+      resp.status(204).json( otherItems );
     } catch (error) {
       resp.status(500).json({ message: error.message });
     }
